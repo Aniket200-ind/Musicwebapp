@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Serif', serif;
+}
+
+*::before, *::after{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --pink: #ff74a4;
+    --violet: #9f6ea3;
+    --lightblack: #515C6F;
+    --white: #ffffff;
+    --darkwhite: #cecaca;
+    --pinkshadow: #ffcbdd;
+    --lightshadow: rgba(0,0,0,0.15);
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient( 119.6deg,  rgba(100, 60, 8, 0.973) 11.2%, rgba(116, 40, 5, 0.918) 32.6%, rgba(104, 72, 2, 0.836) 72.7%, rgba(56, 24, 0, 0.788) 100.2% );
+}
+
+/* Loader */
+#preloader{
+	background: rgb(28, 21, 37) url(img/loader.gif) no-repeat center;
+    background-size: 50%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    transition: 1s ease-in-out;
+}
+
+
+.wrapper{
+    /* height: 480px; */
+    width: 100%;
+    position: relative;
+    max-width: 399px;
+    background: var(--white);
+    box-shadow: 0px 6px 15px var(--lightshadow);
+    /* padding: 10px; */
+    overflow: hidden;
+    padding: 15px;
+    border-radius: 35px;
+    background-image: radial-gradient( circle farthest-corner at 7.2% 19%,  rgba(120,0,0,1) 0%, rgba(239,75,75,1) 100.2% );
+    
+}
+
+i{
+    cursor: pointer;
+}
+
+.progress-area .timer, .controls, .music-list .header, .music-list li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+/* .top-bar{
+    justify-content: center;
+}
+
+.top-bar span{
+    font-size: 20px;
+    color: var(--lightblack);
+} */
+
+.img-area{
+    height: 256px;
+    width: 100;
+    box-shadow: 0px 6px 15px var(--lightshadow);
+    border-radius: 18px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.img-area img{
+    height: 100%;
+    width: 100%;
+    /* object-fit: cover; */
+}
+
+.song-details{
+    text-align: center;
+    margin: 26px;
+}
+
+.name{
+    font-size: 22px;
+    /* font-family: 'Smooch', cursive; */
+    font-family: 'Nosifer', cursive;
+    margin-left: -90px;
+    margin-right: -93px;
+    color: gold;
+}
+
+.artist{
+    /* opacity: 0.9; */
+    font-size: 28px;
+    font-weight: 900;
+    font-family: 'Grape Nuts', cursive;
+    color: rgb(4, 77, 43);
+    text-shadow: 5px 3px 6px yellow, 0 0 1em springgreen, 0 0 0.2em orangered;
+}
+
+.progress-area{
+    height: 6px;
+    width: 100%;
+    background: rgb(238, 205, 144);
+    border-radius: 50px;
+    cursor: pointer;
+    
+}
+
+
+
+.progress-area .progress-bar{
+    height: inherit;
+    width: 0%;
+    border-radius: inherit;
+    position: relative;
+    background: #0f8f69;
+    background: -webkit-linear-gradient(to right, #0f8f69, #0f9b0f);
+    background: linear-gradient(to right, #0f8f69, #0f9b0f);
+    
+}
+
+.progress-bar::before{
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: inherit;
+    top: 50%;
+    background: inherit;
+    right: -5px;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+.progress-area:hover .progress-bar::before{
+    opacity: 1;
+}
+
+.progress-area:hover{
+    outline: 3px ridge midnightblue;
+}
+
+.progress-area .timer{
+    margin-top: 2px;
+}
+
+.timer span{
+    font-size: 19px;
+    color: rgb(84, 228, 17);
+    font-weight: 800;
+}
+
+.controls{
+    margin: 35px 0 5px 0;
+}
+
+.controls i{
+    font-size: 35px;
+    user-select: none;
+    color: rgba(51, 5, 255, 0.733);
+    transition: 0.2s ease-in-out;
+}
+
+/* .controls i:hover{
+    color: cyan;
+    font-size: 40px;
+    box-shadow: 1px 3px 3px 3px black;
+} */
+
+
+.controls i:nth-child(2),
+.controls i:nth-child(4){
+    font-size: 45px;
+}
+
+.controls #prev{
+    margin-right: -15px;
+}
+
+.controls #next{
+    margin-left: -15px;
+}
+
+.controls .play-pause{
+    height: 54px;
+    width: 54px;
+    background-image: radial-gradient( circle 755px at 10.1% 95.3%,  rgba(242,188,141,1) 0%, rgba(242,159,141,1) 100.2% );
+    box-shadow: 1px 2px 9px  darkblue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.play-pause::before{
+    content: "";
+    position: absolute;
+    height: 43px;
+    width: 43px;
+    border-radius: inherit;
+    
+
+}
+
+.play-pause i{
+    height: 43px;
+    width: 43px;
+    border-radius: inherit;
+    text-align: center;
+    line-height: 43px;
+    background: inherit;
+    position: relative;
+}
+
+.music-list{
+    position: absolute;
+    left: 0;
+    bottom: -55%;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    padding: 15px 30px;
+    background: var(--white);
+    box-shadow: 0px -6px 15px var(--lightshadow);
+    transition: all 0.14s ease-out;
+    color: darksalmon;
+
+}
+
+.music-list.show{
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+    background: #000;
+    border-radius: 20px;
+}
+
+.music-list .header .row{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: darksalmon;
+
+}
+
+.header .row i{
+    cursor: pointer;
+}
+
+.header .row span{
+    margin-left: 5px;
+}
+
+.music-list ul{
+    margin: 10px;
+    max-height: 256px;
+    overflow-y: auto;
+}
+
+.music-list ul::-webkit-scrollbar{
+    width: 0px;
+}
+
+.music-list ul li{
+    cursor: pointer;
+    list-style: none;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #b9ac6f;
+    font-family: 'Roboto Flex', sans-serif;
+    color: darksalmon;
+}
+
+.music-list ul li:last-child{
+    border-bottom: 0px;
+}
+
+.music-list ul li .row span{
+    font-size: 16px;
+}
+
+.music-list ul li .row p{
+    opacity: 0.9;
+    font-size: 16px;
+    font-family: 'Grape Nuts', cursive;
+}
+
+ul li .audio-duration{
+    font-size: 17px;
+}
+
+
+ul li.playing{
+    color: greenyellow;
+    pointer-events: none;
+    font-size: 17px;
+
+}
+
+@media only screen and (max-width: 455px) {
+        .wrapper{
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .name{
+            margin-right: -58px;
+            margin-left: -58px;
+            font-size: 19px;
+        }
+}
